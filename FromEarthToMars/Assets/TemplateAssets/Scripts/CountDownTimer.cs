@@ -22,10 +22,21 @@ public class CountDownTimer : MonoBehaviour {
         } else
         {
             timeLeft = 0;
+            EndGame();
         }
         var displaySeconds = System.Math.Ceiling(timeLeft);
         var displayMinutes = System.Math.Floor(displaySeconds / 60);
         displaySeconds = displaySeconds % 60;
         timerText.text = string.Format("{0}:{1}", displayMinutes, displaySeconds);
+    }
+
+    void EndGame () {
+         #if UNITY_EDITOR
+         UnityEditor.EditorApplication.isPlaying = false;
+         #elif UNITY_WEBPLAYER
+         Application.OpenURL(webplayerQuitURL);
+         #else
+         Application.Quit();
+         #endif
     }
 }
