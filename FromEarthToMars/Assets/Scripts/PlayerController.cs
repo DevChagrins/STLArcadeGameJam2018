@@ -52,10 +52,22 @@ namespace Chagrins
             Vector2 direction = tempVelocity.normalized;
             velocity = direction * distance;
 
-            //CheckCollision(new Vector2(direction.x, 0f), velocity.x);
-            //CheckCollision(new Vector2(0f, direction.y), velocity.y);
             CheckLeftRight(direction.x, velocity.x);
             CheckUpDown(direction.y, velocity.y);
+
+            if(Maths.EqualZero(direction.y) && !Maths.EqualZero(direction.x))
+            {
+                if(direction.x >= 0f)
+                {
+                    spriteRenderer.flipX = false;
+                    animator.Play("Side");
+                }
+                else
+                {
+                    spriteRenderer.flipX = true;
+                    animator.Play("Side");
+                }
+            }
 
             transform.position += velocity;
         }
@@ -133,57 +145,9 @@ namespace Chagrins
         // Overridable to make adjustments to the reaction
         protected virtual bool HandleCollision(RaycastHit2D _hit)
         {
-            int collisionCount = 0;
-            bool collisionHappened = false;
-            Vector3 position = transform.position;
-            if(!Maths.EqualZero(_hit.normal.x))
-            {
-                float moveSign = Mathf.Sign(_hit.normal.x);
-                if (!Maths.EqualZero(velocity.x) && (moveSign != Mathf.Sign(velocity.x)))
-                {
-                    velocity.x = 0;
-                    position.x = _hit.point.x - (((boxCollider2D.size.x * 0.5f) + boxCollider2D.offset.x + colliderError) * -moveSign);
-                    collisionHappened = true;
-                    collisionCount++;
-                }
-            }
-
-            // Figure out why the Y is all fucky. Maybe check with no offset
-            if (!Maths.EqualZero(_hit.normal.y))
-            {
-                float moveSign = Mathf.Sign(_hit.normal.y);
-                if (!Maths.EqualZero(velocity.y) && (moveSign != Mathf.Sign(velocity.y)))
-                {
-                    velocity.y = 0;
-                    position.y = _hit.point.y - (((boxCollider2D.size.y * 0.5f) + boxCollider2D.offset.y + colliderError) * -moveSign);
-                    collisionHappened = true;
-                    collisionCount++;
-                }
-            }
-
-            if (collisionHappened)
-            {
-                if (!Maths.EqualZero(velocity.x))
-                {
-                    velocity.x = transform.position.x - position.x;
-                }
-
-                if (!Maths.EqualZero(velocity.y))
-                {
-                    velocity.y = transform.position.y - position.y;
-                }
-                transform.position = position;
-            }
+            bool collisionHappened = true;
 
             return collisionHappened;
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
         }
     }
 }
