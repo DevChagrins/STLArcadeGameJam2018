@@ -10,7 +10,7 @@ public class Rotator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        transform.Rotate(startRotation);
     }
 
     // Update is called once per frame
