@@ -104,7 +104,8 @@ namespace Chagrins
 
         void CheckPointOfInterests()
         {
-
+            Collider2D[] colliderResults = new Collider2D[10];
+            int results = Physics2D.OverlapCollider(collider2D, pointOfInterestFilter, colliderResults);
 
         }
 
