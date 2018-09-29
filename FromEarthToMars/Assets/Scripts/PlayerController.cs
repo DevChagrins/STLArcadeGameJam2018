@@ -73,9 +73,21 @@ namespace Chagrins
                     animator.Play("Side");
                 }
             }
-            else if (!Maths.EqualZero(direction.y) && Maths.EqualZero(direction.x))
+            else if (!Maths.EqualZero(direction.y))
             {
+                if (Maths.EqualZero(animator.speed))
+                {
+                    animator.speed = 1f;
+                }
 
+                if (direction.y >= 0f)
+                {
+                    animator.Play("Up");
+                }
+                else
+                {
+                    animator.Play("Down");
+                }
             }
             else
             {
