@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ec9c31788418d46828749e17dd6371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CamSpeed: {x: 0.04, y: 0, z: 0}
+  CamSpeed: {x: 0.06, y: 0, z: 0}
   MaxCoords: {x: 18, y: 20}
 --- !u!114 &519420034
 MonoBehaviour:
@@ -1191,7 +1191,6 @@ MonoBehaviour:
     type: 2}
   RockLargePrefab: {fileID: 1580111593592034, guid: f1440db531a6bf047903d50adf430c2f,
     type: 2}
-  UIBorder: {fileID: 0}
   startPoint: {fileID: 400219163}
   endPoint: {fileID: 927619552}
   instanceCount: 15
