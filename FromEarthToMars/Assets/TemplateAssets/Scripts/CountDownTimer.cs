@@ -30,6 +30,9 @@ public class CountDownTimer : MonoBehaviour {
         timerText.text = string.Format("{0}:{1}", displayMinutes, displaySeconds);
     }
 
+	public void ModifyTime(float delta) {
+		timeLeft += delta;
+	}
     void EndGame () {
          #if UNITY_EDITOR
          UnityEditor.EditorApplication.isPlaying = false;

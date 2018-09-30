@@ -19,7 +19,7 @@ namespace Chagrins
 		bool firstCall = true;
 		private List<InputCommand> m_pendingInputs;
 		public InputCommand m_lastInput;
-		private float m_pauseInputTime = 0.0f;
+		public float m_pauseInputTime = 0.0f;
 
         void Start()
         {
@@ -181,6 +181,8 @@ namespace Chagrins
         }
 
 		public void FreezeInput(float f, bool ClearCurrentInputs) {
+			if (m_pauseInputTime > 0f)
+				return;
 			m_pauseInputTime = f;
 			if (ClearCurrentInputs)
 				m_pendingInputs.Clear ();
