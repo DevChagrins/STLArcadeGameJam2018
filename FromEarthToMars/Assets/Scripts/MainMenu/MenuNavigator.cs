@@ -38,7 +38,10 @@ public class MenuNavigator : MonoBehaviour
         {
             if(menuState == MenuState.HOWTO)
             {
+				Debug.Log ("Loading game");
                 levelLoader?.LoadGameScenes(GoToGame);
+				FindObjectOfType<CountDownTimer> ().timeLeft = 90f;
+				menuState = MenuState.GAME;
             }
 
             switch (menuState)
