@@ -13,6 +13,7 @@ namespace Chagrins
         public ContactFilter2D pointOfInterestFilter;
         public float colliderError = 0.001f;
 		public float inputDelay = 1.0f;
+        public float actionTime = 1.0f;
 
         Vector3 velocity = Vector3.zero;
 		bool firstCall = true;
@@ -103,9 +104,10 @@ namespace Chagrins
 
             CheckLeftRight(direction.x, velocity.x);
             CheckUpDown(direction.y, velocity.y);
-            CheckPointOfInterests();
 
             transform.position += velocity;
+
+            CheckPointOfInterests();
 
             // Sprite stuff!!!
             if (Maths.EqualZero(direction.y) && !Maths.EqualZero(direction.x))
@@ -154,6 +156,28 @@ namespace Chagrins
             Collider2D[] colliderResults = new Collider2D[10];
             int results = Physics2D.OverlapCollider(collider2D, pointOfInterestFilter, colliderResults);
 
+            if (results > 0)
+            {
+                CollectPointOfInterest(colliderResults[0]);
+            }
+        }
+
+        void CollectPointOfInterest(Collider2D collider)
+        {
+            PointOfInterest poi = collider.gameObject.GetComponent<PointOfInterest>();
+
+            // Add time
+            float? timeValue = poi?.GetTimeValue();
+
+            if(timeValue.HasValue)
+            {
+                // Actually add the time to the overall counter
+            }
+            // Delay input
+            FreezeInput(actionTime, true);
+
+            // Disable collision on point of interest
+            poi?.EnableSelfDestruction(actionTime);
         }
 
 		public void FreezeInput(float f, bool ClearCurrentInputs) {
