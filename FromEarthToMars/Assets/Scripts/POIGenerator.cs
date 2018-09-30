@@ -23,7 +23,6 @@ public class POIGenerator : MonoBehaviour
             endPos = new Vector2(startPos.x + Random.Range(minRange, maxRange), endPoint.position.y);
             if((endPos.x > endPoint.position.x) || (endPoint.position.x - endPos.x <= 1.28))
                 break;
-            
         }
         
     }
@@ -34,7 +33,6 @@ public class POIGenerator : MonoBehaviour
         float positionY = Start.y;
         float ranW = Random.Range(0f, 359.9f);
 
-        //positionX = Random.Range(Start.x, End.x);
         positionX = End.x;
         positionY = Random.Range(Start.y, End.y);
         GameObject POI = GameObject.Instantiate(POIPrefab, new Vector3(positionX, positionY, 0f), Quaternion.identity);
