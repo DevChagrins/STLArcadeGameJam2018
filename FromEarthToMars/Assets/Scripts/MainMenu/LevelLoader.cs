@@ -5,19 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    public GenerationManager genManager;
+    public Camera mainCamera;
     public string[] gameScenes;
     private int sceneLoadedCount;
+
     // Use this for initialization
     void Start()
     {
         sceneLoadedCount = 0;
-        LoadGameScenes();
+
+        genManager.DisableGeneration();
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void LoadGameScenes()
