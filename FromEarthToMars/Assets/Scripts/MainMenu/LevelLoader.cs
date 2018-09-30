@@ -10,6 +10,9 @@ public class LevelLoader : MonoBehaviour
     public string[] gameScenes;
     private int sceneLoadedCount;
 
+    public delegate void LevelLoadCallBack();
+    private LevelLoadCallBack callbackDelegate;
+
     // Use this for initialization
     void Start()
     {
@@ -23,10 +26,11 @@ public class LevelLoader : MonoBehaviour
     {
     }
 
-    public void LoadGameScenes()
+    public void LoadGameScenes(LevelLoadCallBack _callback)
     {
         if(gameScenes.Length > 0)
         {
+            callbackDelegate = _callback;
             foreach(string scene in gameScenes)
             {
                 AsyncOperation loadOperation = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
@@ -40,6 +44,11 @@ public class LevelLoader : MonoBehaviour
         if(_operation.isDone)
         {
             sceneLoadedCount++;
+
+            if(sceneLoadedCount >= gameScenes.Length)
+            {
+                callbackDelegate?.Invoke();
+            }
         }
     }
 

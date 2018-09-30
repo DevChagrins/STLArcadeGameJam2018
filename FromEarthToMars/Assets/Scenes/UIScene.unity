@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 273808704}
   - component: {fileID: 273808703}
   - component: {fileID: 273808702}
+  - component: {fileID: 273808706}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -385,6 +386,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &273808706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 273808701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e570c8c0bbd9726439121e44373987a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuState: 0
+  mainScreen: {fileID: 1872955035}
+  howToScreen: {fileID: 249805558}
+  resultsScreen: {fileID: 1890540434}
+  levelLoader: {fileID: 507365192}
+  generationMan: {fileID: 507365196}
 --- !u!1 &286035790
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +695,7 @@ MonoBehaviour:
   cameraScrollScript: {fileID: 519420033}
   arrowManScript: {fileID: 519420030}
   cloudParticles: {fileID: 908473476}
+  rockGenScript: {fileID: 2121158780}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class GenerationManager : MonoBehaviour
     public SimpleCameraScroll cameraScrollScript;
     public ArrowManager arrowManScript;
     public GameObject cloudParticles;
+    public RockGenerator rockGenScript;
 
     // Use this for initialization
     void Start()
@@ -28,6 +29,7 @@ public class GenerationManager : MonoBehaviour
         sandGenScript.enabled = true;
         cameraScrollScript.enabled = true;
         arrowManScript.enabled = true;
+        rockGenScript.enabled = true;
         cloudParticles.SetActive(true);
     }
 
@@ -37,6 +39,7 @@ public class GenerationManager : MonoBehaviour
         sandGenScript.enabled = false;
         cameraScrollScript.enabled = false;
         arrowManScript.enabled = false;
+        rockGenScript.enabled = false;
         cloudParticles.SetActive(false);
     }
 }
