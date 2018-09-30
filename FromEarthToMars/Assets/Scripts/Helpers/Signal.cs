@@ -19,6 +19,12 @@ public class Signal : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GetComponent<TrailRenderer> ().time = mInput.duration;
+		int n = GetComponent<TrailRenderer> ().positionCount;
+		for (int i = 0; i < n; i++) {
+			Vector3 pos = GetComponent<TrailRenderer> ().GetPosition (i);
+			pos = new Vector3 (transform.position.x, pos.y, pos.z);
+			GetComponent<TrailRenderer> ().SetPosition (i, pos);
+		}
 		RectTransform rt = GetComponent<RectTransform> ();
 		m_time_alive += Time.deltaTime;
 		if (m_time_alive < Delay) {
