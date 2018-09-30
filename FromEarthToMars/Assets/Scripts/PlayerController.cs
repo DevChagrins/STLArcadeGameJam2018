@@ -25,9 +25,8 @@ namespace Chagrins
 			m_pendingInputs = new List<InputCommand> ();
         }
 
-		void Update() {
-			Debug.Log ("Calling this instead?");
-		}
+		void Update() {	}
+
         void FixedUpdate()
         {
             _Update();
@@ -61,11 +60,11 @@ namespace Chagrins
 					newCommand.ActiveTime = Time.timeSinceLevelLoad + inputDelay;
 					newCommand.duration = 0f;
 					newCommand.direction = targetVel;
+					newCommand.Delay = inputDelay;
 					m_pendingInputs.Add (newCommand);
 					m_lastInput = newCommand;
-				} else {
-					Debug.Log ("First call");
-					
+					FindObjectOfType<ArrowManager> ().CreateArrow (newCommand);
+				} else {					
 					m_lastInput.duration += Time.fixedDeltaTime;
 				}
 			} else {
