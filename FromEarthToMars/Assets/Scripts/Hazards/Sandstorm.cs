@@ -33,7 +33,7 @@ public class Sandstorm : MonoBehaviour
             if (lifeTime <= 0f && (particles && !particles.isVisible))
             {
                 destroyEvent?.Invoke();
-                GameObject.DestroyImmediate(this);
+                GameObject.DestroyImmediate(this.gameObject);
             }
         }
     }

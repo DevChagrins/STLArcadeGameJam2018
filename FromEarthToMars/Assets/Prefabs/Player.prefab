@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1136542341638228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.57, y: -2.3, z: 7.590304}
+  m_LocalPosition: {x: -6.18, y: -2.35, z: 7.590304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4780687395123622}
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870841072105188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.734, y: 2.298, z: -7.590304}
+  m_LocalPosition: {x: 4.07, y: 1.92, z: -7.590304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4326600000242900}
@@ -210,6 +210,12 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   colliderError: 0.001
+  inputDelay: 3
+  m_lastInput:
+    ActiveTime: 0
+    direction: {x: 0, y: 0, z: 0}
+    duration: 0
+    Delay: 0
 --- !u!212 &212010358715034484
 SpriteRenderer:
   m_ObjectHideFlags: 1

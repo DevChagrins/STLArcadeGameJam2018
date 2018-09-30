@@ -297,7 +297,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400219163}
-  m_Layer: 0
+  - component: {fileID: 400219164}
+  m_Layer: 12
   m_Name: StartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,6 +318,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &400219164
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 400219162}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 10}
+  m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +355,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -431,8 +458,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ec9c31788418d46828749e17dd6371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CamSpeed: {x: 0.05, y: 0, z: 0}
+  CamSpeed: {x: 0.01, y: 0, z: 0}
   MaxCoords: {x: 18, y: 20}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b97b623ed09a1f4694787c73bfe31fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  POIPrefab: {fileID: 1535518907220620, guid: 94b2e2ab73af0d143a26d08b542b2099, type: 2}
+  startPoint: {fileID: 400219163}
+  endPoint: {fileID: 927619552}
+  instanceCount: 25
+  minRange: 1.28
+  maxRange: 5.12
 --- !u!1001 &908473474
 Prefab:
   m_ObjectHideFlags: 0
@@ -488,7 +532,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 927619552}
-  m_Layer: 0
+  - component: {fileID: 927619553}
+  m_Layer: 13
   m_Name: EndPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,6 +553,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &927619553
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 927619551}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 10}
+  m_EdgeRadius: 0
 --- !u!1 &974266968
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,22 +735,22 @@ Prefab:
     - target: {fileID: 114149548248095316, guid: 4f0aececb7c0c46428f069c7d896c3bb,
         type: 2}
       propertyPath: minSpeed
-      value: 0.32
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 114149548248095316, guid: 4f0aececb7c0c46428f069c7d896c3bb,
         type: 2}
       propertyPath: maxSpeed
-      value: 2.56
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 114149548248095316, guid: 4f0aececb7c0c46428f069c7d896c3bb,
         type: 2}
       propertyPath: minLifeTime
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114149548248095316, guid: 4f0aececb7c0c46428f069c7d896c3bb,
         type: 2}
       propertyPath: maxLifeTime
-      value: 60
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f0aececb7c0c46428f069c7d896c3bb, type: 2}
