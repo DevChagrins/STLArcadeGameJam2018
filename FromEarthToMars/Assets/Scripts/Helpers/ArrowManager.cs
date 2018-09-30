@@ -34,6 +34,7 @@ public class ArrowManager : MonoBehaviour {
 		newArrow.GetComponent<RectTransform>().localPosition = new Vector3 (286f,144f,0f);
 		Vector3 dir = inp.direction;
 		newArrow.GetComponent<Signal> ().Speed = HeightOfDisplay / inp.Delay;
+		newArrow.GetComponent<Signal> ().Delay = inp.Delay;
 		if (dir.y > 0f && dir.x == 0f) {
 			newArrow.GetComponent<Image> ().sprite = UpSprite;
 		} else if (dir.y > 0f && dir.x > 0f) {

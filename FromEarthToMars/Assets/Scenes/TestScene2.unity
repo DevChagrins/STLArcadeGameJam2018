@@ -143,7 +143,9 @@ MonoBehaviour:
   POIPrefab: {fileID: 1535518907220620, guid: 94b2e2ab73af0d143a26d08b542b2099, type: 2}
   startPoint: {fileID: 1384414049}
   endPoint: {fileID: 1909398974}
-  instanceCount: 25
+  instanceCount: 20
+  minRange: 1.92
+  maxRange: 3.76
 --- !u!4 &1131254979
 Transform:
   m_ObjectHideFlags: 0
