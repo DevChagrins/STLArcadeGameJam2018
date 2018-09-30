@@ -21,7 +21,7 @@ public class SandstormGenerator : MonoBehaviour
     private GameObject currentSandstorm = null;
     private Rect bounds;
 
-	private bool m_enabled;
+	private bool m_enabled = true;
     // Use this for initialization
     void Start()
     {
