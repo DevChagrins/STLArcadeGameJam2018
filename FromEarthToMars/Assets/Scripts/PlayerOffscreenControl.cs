@@ -32,6 +32,8 @@ namespace Chagrins {
 				PPos = pc.transform.position;
 				ImageOn = (PPos.x < MinCoord.x + xOff || PPos.x > MaxCoord.x + xOff ||
 					PPos.y < MinCoord.y || PPos.y > MaxCoord.y);
+				if (ImageOn)
+					FindObjectOfType<CountDownTimer> ().ModifyTime (-Time.deltaTime);
 			}
 			UpdateImage (ImageOn);
 		}

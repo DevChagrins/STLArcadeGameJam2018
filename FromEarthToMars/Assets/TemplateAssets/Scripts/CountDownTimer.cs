@@ -34,7 +34,10 @@ public class CountDownTimer : MonoBehaviour {
         displaySeconds = displaySeconds % 60;
         timerText.text = string.Format("{0}:{1}", displayMinutes, displaySeconds);
     }
-
+		
+	public void ModifyTime(float delta) {
+		timeLeft += delta;
+	}
     public void AddTime(float _additionalTime)
     {
         timeLeft = timeLeft + _additionalTime;
