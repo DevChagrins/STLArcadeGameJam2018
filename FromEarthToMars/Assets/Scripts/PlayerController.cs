@@ -18,6 +18,7 @@ namespace Chagrins
 		bool firstCall = true;
 		private List<InputCommand> m_pendingInputs;
 		public InputCommand m_lastInput;
+		private float m_pauseInputTime = 0.0f;
 
         void Start()
         {
@@ -89,7 +90,10 @@ namespace Chagrins
 
         protected override void _Step()
         {
-			IssueInputs ();
+			if (m_pauseInputTime <= 0.0f)
+				IssueInputs ();
+			else
+				m_pauseInputTime -= Time.deltaTime;
 			Vector3 tempVelocity = calculateTempVelocity ();
 				
             // Collision!
@@ -167,6 +171,12 @@ namespace Chagrins
             PointOfInterest poi = collider.gameObject.GetComponent<PointOfInterest>();
             poi?.DisableCollision();
         }
+
+		public void FreezeInput(float f, bool ClearCurrentInputs) {
+			m_pauseInputTime = f;
+			if (ClearCurrentInputs)
+				m_pendingInputs.Clear ();
+		}
 
         bool CheckLeftRight(float _xDirection, float _xSpeed)
         {
