@@ -5,6 +5,7 @@ using UnityEngine;
 public class PointOfInterest : MonoBehaviour
 {
     private Collider2D pointCollider = null;
+    public float timeValue = 10f;
 
     // Use this for initialization
     void Start()
@@ -24,5 +25,10 @@ public class PointOfInterest : MonoBehaviour
         {
             pointCollider.enabled = false;
         }
+    }
+
+    public float GetTimeValue()
+    {
+        return timeValue;
     }
 }

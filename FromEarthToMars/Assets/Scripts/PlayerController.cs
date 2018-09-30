@@ -13,6 +13,7 @@ namespace Chagrins
         public ContactFilter2D pointOfInterestFilter;
         public float colliderError = 0.001f;
 		public float inputDelay = 1.0f;
+        public float actionTime = 1.0f;
 
         Vector3 velocity = Vector3.zero;
 		bool firstCall = true;
@@ -163,12 +164,19 @@ namespace Chagrins
 
         void CollectPointOfInterest(Collider2D collider)
         {
-            // Add time
+            PointOfInterest poi = collider.gameObject.GetComponent<PointOfInterest>();
 
+            // Add time
+            float? timeValue = poi?.GetTimeValue();
+
+            if(timeValue.HasValue)
+            {
+                // Actually add the time to the overall counter
+            }
             // Delay input
+            FreezeInput(actionTime, true);
 
             // Disable collision on point of interest
-            PointOfInterest poi = collider.gameObject.GetComponent<PointOfInterest>();
             poi?.DisableCollision();
         }
 
