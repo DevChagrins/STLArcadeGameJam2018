@@ -1018,7 +1018,7 @@ GameObject:
   - component: {fileID: 1765741806}
   m_Layer: 5
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.02745098, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f150c5438616834c9a4f373e841fff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime: 180
+  initialTime: 60
 --- !u!1 &1908550797
 GameObject:
   m_ObjectHideFlags: 0

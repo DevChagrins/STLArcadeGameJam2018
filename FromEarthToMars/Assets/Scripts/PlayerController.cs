@@ -174,6 +174,7 @@ namespace Chagrins
 
             if(timeValue.HasValue)
             {
+                Debug.Log("Collecting!");
                 // Actually add the time to the overall counter
                 countDownTimer?.AddTime(timeValue.Value);
             }
@@ -270,7 +271,6 @@ namespace Chagrins
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("Trigger enter!");
             if(collision.CompareTag("Hazard"))
             {
                 // Lose command here
@@ -279,7 +279,6 @@ namespace Chagrins
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            Debug.Log("Trigger exit!");
         }
     }
 }
