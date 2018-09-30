@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hazard
+  - Timer
+  - Master
   layers:
   - Default
   - TransparentFX
