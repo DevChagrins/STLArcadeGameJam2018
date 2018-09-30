@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class CountDownTimer : MonoBehaviour {
     public float initialTime = 180f;
     private Text timerText;
-    public float timeLeft { get; private set; }
-    private float totalTime = 0f;
+	public float timeLeft;
+	public float totalTime = 0f;
     private int pickupCounter;
     private GameObject masterObject = null;
 

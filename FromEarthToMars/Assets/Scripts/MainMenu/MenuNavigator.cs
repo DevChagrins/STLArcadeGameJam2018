@@ -36,11 +36,12 @@ public class MenuNavigator : MonoBehaviour
 
         if (delayForInput < 0f)
         {
-            if(menuState == MenuState.GAME)
+            if(menuState == MenuState.HOWTO)
             {
+				Debug.Log ("Loading game");
                 levelLoader?.LoadGameScenes(GoToGame);
-                generationMan?.EnableGeneration();
-                menuState = MenuState.GAME;
+				FindObjectOfType<CountDownTimer> ().timeLeft = 90f;
+				menuState = MenuState.GAME;
             }
 
             switch (menuState)
@@ -49,7 +50,7 @@ public class MenuNavigator : MonoBehaviour
                     {
                         if (Input.anyKey)
                         {
-                            MenuTransition(MenuState.HOWTO, 7.5f);
+                            MenuTransition(MenuState.HOWTO, 5f);
                         }
                     }
                     break;
@@ -113,9 +114,13 @@ public class MenuNavigator : MonoBehaviour
 
     public void GoToGame()
     {
+        Debug.Log("Go To Game");
         mainScreen.SetActive(false);
         howToScreen.SetActive(false);
         resultsScreen.SetActive(false);
+
+        generationMan?.EnableGeneration();
+        menuState = MenuState.GAME;
     }
 
     public void GoToResults()
