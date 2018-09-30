@@ -176,7 +176,7 @@ namespace Chagrins
 
             if(timeValue.HasValue)
             {
-                Debug.Log("Collecting!");
+                //Debug.Log("Collecting!");
                 // Actually add the time to the overall counter
                 countDownTimer?.AddTime(timeValue.Value);
             }
@@ -248,7 +248,7 @@ namespace Chagrins
                 for (int colliderIndex = 0; colliderIndex < colliderCount; colliderIndex++)
                 {
                     RaycastHit2D hit = collisionResults[colliderIndex];
-					Debug.Log (hit.collider.gameObject);
+					//Debug.Log (hit.collider.gameObject);
 					if (!hit.collider.isTrigger && !Maths.EqualZero(hit.normal.y))
                     {
                         float moveSign = Mathf.Sign(hit.normal.y);
