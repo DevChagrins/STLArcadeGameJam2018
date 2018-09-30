@@ -140,11 +140,11 @@ namespace Chagrins
 
                 if (direction.y >= 0f)
                 {
-                    animator.Play("Up");
+                    animator.Play("Down");
                 }
                 else
                 {
-                    animator.Play("Down");
+                    animator.Play("Up");
                 }
             }
             else
@@ -211,7 +211,7 @@ namespace Chagrins
                 for (int colliderIndex = 0; colliderIndex < colliderCount; colliderIndex++)
                 {
                     RaycastHit2D hit = collisionResults[colliderIndex];
-                    if (!Maths.EqualZero(hit.normal.x))
+					if (!hit.collider.isTrigger && !Maths.EqualZero(hit.normal.x))
                     {
                         float moveSign = Mathf.Sign(hit.normal.x);
                         if (!Maths.EqualZero(_xSpeed) && (moveSign != Mathf.Sign(_xSpeed)))
@@ -242,14 +242,17 @@ namespace Chagrins
             Vector2 leftOverTravel = Vector2.zero;
             if (colliderCount > 0)
             {
+				
                 for (int colliderIndex = 0; colliderIndex < colliderCount; colliderIndex++)
                 {
                     RaycastHit2D hit = collisionResults[colliderIndex];
-                    if (!Maths.EqualZero(hit.normal.y))
+					Debug.Log (hit.collider.gameObject);
+					if (!hit.collider.isTrigger && !Maths.EqualZero(hit.normal.y))
                     {
                         float moveSign = Mathf.Sign(hit.normal.y);
                         if (!Maths.EqualZero(_ySpeed) && (moveSign != Mathf.Sign(_ySpeed)))
                         {
+							
                             velocity.y = 0;
                             position.y = hit.point.y - (((boxCollider2D.size.y * 0.5f) + boxCollider2D.offset.y + colliderError) * -moveSign);
                             impactCollision = true;
