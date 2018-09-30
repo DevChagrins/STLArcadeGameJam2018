@@ -99,9 +99,10 @@ namespace Chagrins
 
             CheckLeftRight(direction.x, velocity.x);
             CheckUpDown(direction.y, velocity.y);
-            CheckPointOfInterests();
 
             transform.position += velocity;
+
+            CheckPointOfInterests();
 
             // Sprite stuff!!!
             if (Maths.EqualZero(direction.y) && !Maths.EqualZero(direction.x))
@@ -150,6 +151,21 @@ namespace Chagrins
             Collider2D[] colliderResults = new Collider2D[10];
             int results = Physics2D.OverlapCollider(collider2D, pointOfInterestFilter, colliderResults);
 
+            if (results > 0)
+            {
+                CollectPointOfInterest(colliderResults[0]);
+            }
+        }
+
+        void CollectPointOfInterest(Collider2D collider)
+        {
+            // Add time
+
+            // Delay input
+
+            // Disable collision on point of interest
+            PointOfInterest poi = collider.gameObject.GetComponent<PointOfInterest>();
+            poi?.DisableCollision();
         }
 
         bool CheckLeftRight(float _xDirection, float _xSpeed)
