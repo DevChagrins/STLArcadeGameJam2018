@@ -167,7 +167,6 @@ namespace Chagrins
             Vector2 leftOverTravel = Vector2.zero;
             if (colliderCount > 0)
             {
-                Debug.Log("LR Collider Count: " + colliderCount);
                 for (int colliderIndex = 0; colliderIndex < colliderCount; colliderIndex++)
                 {
                     RaycastHit2D hit = collisionResults[colliderIndex];
@@ -202,7 +201,6 @@ namespace Chagrins
             Vector2 leftOverTravel = Vector2.zero;
             if (colliderCount > 0)
             {
-                Debug.Log("UD Collider Count: " + colliderCount);
                 for (int colliderIndex = 0; colliderIndex < colliderCount; colliderIndex++)
                 {
                     RaycastHit2D hit = collisionResults[colliderIndex];
@@ -228,6 +226,20 @@ namespace Chagrins
             bool collisionHappened = true;
 
             return collisionHappened;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            Debug.Log("Trigger enter!");
+            if(collision.CompareTag("Sandstorm"))
+            {
+                // Lose command here
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            Debug.Log("Trigger exit!");
         }
     }
 }

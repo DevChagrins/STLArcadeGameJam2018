@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ec9c31788418d46828749e17dd6371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CamSpeed: {x: 0.1, y: 0, z: 0}
+  CamSpeed: {x: 0.05, y: 0, z: 0}
   MaxCoords: {x: 18, y: 20}
 --- !u!1001 &908473474
 Prefab:

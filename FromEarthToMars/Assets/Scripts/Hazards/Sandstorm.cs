@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class Sandstorm : MonoBehaviour
 {
-    public GameObject LargeSandstorm = null;
-    public GameObject SmallSandstorm = null;
-    public int largeStormCount = 5;
-    public int smallStormCount = 8;
+    public Vector3 moveDirection;
+    public float moveSpeed;
 
     // Use this for initialization
     void Start()
     {
-        for(int largeCount = 0; largeCount < largeStormCount; largeCount++)
-        {
-
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
     }
 }
