@@ -177,7 +177,7 @@ namespace Chagrins
             FreezeInput(actionTime, true);
 
             // Disable collision on point of interest
-            poi?.DisableCollision();
+            poi?.EnableSelfDestruction(actionTime);
         }
 
 		public void FreezeInput(float f, bool ClearCurrentInputs) {

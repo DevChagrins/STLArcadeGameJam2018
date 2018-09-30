@@ -22,7 +22,7 @@ public class CountDownTimer : MonoBehaviour {
         } else
         {
             timeLeft = 0;
-            EndGame();
+            //EndGame();
         }
         var displaySeconds = System.Math.Ceiling(timeLeft);
         var displayMinutes = System.Math.Floor(displaySeconds / 60);
