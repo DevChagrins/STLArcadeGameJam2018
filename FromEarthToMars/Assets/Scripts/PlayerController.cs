@@ -12,43 +12,87 @@ namespace Chagrins
         public ContactFilter2D contactFilter;
         public ContactFilter2D pointOfInterestFilter;
         public float colliderError = 0.001f;
+		public float inputDelay = 1.0f;
 
         Vector3 velocity = Vector3.zero;
+		bool firstCall = true;
+		private List<InputCommand> m_pendingInputs;
+		public InputCommand m_lastInput;
 
         void Start()
         {
             _Initialize();
+			m_pendingInputs = new List<InputCommand> ();
         }
 
+		void Update() {
+			Debug.Log ("Calling this instead?");
+		}
         void FixedUpdate()
         {
             _Update();
         }
 
+		private void IssueInputs() {
+			Vector3 targetVel = new Vector3 ();
+			if (true ) //Input.GetKey(KeyCode.A))
+			{
+				targetVel.x -= speed;
+			}
+
+			if (Input.GetKey(KeyCode.D))
+			{
+				targetVel.x += speed;
+			}
+
+			if (Input.GetKey(KeyCode.W))
+			{
+				targetVel.y += speed;
+			}
+
+			if (Input.GetKey(KeyCode.S))
+			{
+				targetVel.y -= speed;
+			}
+			if (targetVel != Vector3.zero) {
+				if (m_lastInput == null ||
+				    m_lastInput.direction != targetVel) {
+					InputCommand newCommand = new InputCommand ();
+					newCommand.ActiveTime = Time.timeSinceLevelLoad + inputDelay;
+					newCommand.duration = 0f;
+					newCommand.direction = targetVel;
+					m_pendingInputs.Add (newCommand);
+					m_lastInput = newCommand;
+				} else {
+					Debug.Log ("First call");
+					
+					m_lastInput.duration += Time.fixedDeltaTime;
+				}
+			} else {
+				m_lastInput = null;
+			}
+		}
+
+		private Vector3 calculateTempVelocity() {
+			List<InputCommand> m_nextInputs = new List<InputCommand> ();
+			Vector3 tempVelocity =  new Vector3();
+			foreach (InputCommand ic in m_pendingInputs) {
+				if (ic.IsActive (Time.timeSinceLevelLoad)) {
+					tempVelocity += ic.direction;
+				} 
+				if (!ic.IsDead(Time.timeSinceLevelLoad)) {
+					m_nextInputs.Add (ic);
+				}
+			}
+			m_pendingInputs = m_nextInputs;
+			return tempVelocity;
+		}
+
         protected override void _Step()
         {
-            Vector3 tempVelocity = new Vector3();
-
-            if (Input.GetKey(KeyCode.A))
-            {
-                tempVelocity.x -= speed;
-            }
-
-            if (Input.GetKey(KeyCode.D))
-            {
-                tempVelocity.x += speed;
-            }
-
-            if (Input.GetKey(KeyCode.W))
-            {
-                tempVelocity.y += speed;
-            }
-
-            if (Input.GetKey(KeyCode.S))
-            {
-                tempVelocity.y -= speed;
-            }
-
+			IssueInputs ();
+			Vector3 tempVelocity = calculateTempVelocity ();
+				
             // Collision!
             float distance = speed * Time.deltaTime;
             Vector2 direction = tempVelocity.normalized;
