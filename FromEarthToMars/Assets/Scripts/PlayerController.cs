@@ -24,7 +24,6 @@ namespace Chagrins
         {
             _Initialize();
 			m_pendingInputs = new List<InputCommand> ();
-			FreezeInput (3.0f);
         }
 
 		void Update() {	}
