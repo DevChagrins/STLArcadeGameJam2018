@@ -696,6 +696,7 @@ MonoBehaviour:
   arrowManScript: {fileID: 519420030}
   cloudParticles: {fileID: 908473476}
   rockGenScript: {fileID: 2121158780}
+  timer: {fileID: 1765741806}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

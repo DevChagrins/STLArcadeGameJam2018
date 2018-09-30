@@ -10,6 +10,7 @@ public class GenerationManager : MonoBehaviour
     public ArrowManager arrowManScript;
     public GameObject cloudParticles;
     public RockGenerator rockGenScript;
+    public CountDownTimer timer;
 
     // Use this for initialization
     void Start()
@@ -31,6 +32,7 @@ public class GenerationManager : MonoBehaviour
         arrowManScript.enabled = true;
         rockGenScript.enabled = true;
         cloudParticles.SetActive(true);
+        timer.enabled = true;
     }
 
     public void DisableGeneration()
@@ -41,5 +43,6 @@ public class GenerationManager : MonoBehaviour
         arrowManScript.enabled = false;
         rockGenScript.enabled = false;
         cloudParticles.SetActive(false);
+        timer.enabled = false;
     }
 }
