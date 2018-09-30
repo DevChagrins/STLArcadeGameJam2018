@@ -231,7 +231,7 @@ namespace Chagrins
         private void OnTriggerEnter2D(Collider2D collision)
         {
             Debug.Log("Trigger enter!");
-            if(collision.CompareTag("Sandstorm"))
+            if(collision.CompareTag("Hazard"))
             {
                 // Lose command here
             }
