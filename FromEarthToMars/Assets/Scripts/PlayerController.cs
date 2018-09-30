@@ -169,6 +169,8 @@ namespace Chagrins
         {
             PointOfInterest poi = collider.gameObject.GetComponent<PointOfInterest>();
 
+			if (poi == null)
+				return;
             // Add time
             float? timeValue = poi?.GetTimeValue();
 

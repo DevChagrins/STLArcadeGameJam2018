@@ -10,7 +10,7 @@ public class RockGenerator : MonoBehaviour
     public GameObject RockTallPrefab = null;
     public GameObject RockLargePrefab = null;
 
-    public Canvas UIBorder;
+    //public Canvas UIBorder;
     public Transform startPoint;
     public Transform endPoint;
     public int instanceCount = 15;
@@ -35,18 +35,22 @@ public class RockGenerator : MonoBehaviour
                 Vector3 position = lastGeneratedRock.transform.position;
 
                 Collider2D[] box = Physics2D.OverlapBoxAll(new Vector2(position.x, position.y), new Vector2(size.x, size.y), 0.3f);
-                if (box.Length > 1)
+                foreach (Collider2D cd in box)
                 {
-                    GameObject.Destroy(lastGeneratedRock);
+
+                    if (!cd.isTrigger && !cd.gameObject.CompareTag("Rock"))
+                    {
+                        Debug.Log("TR: " + cd.isTrigger);
+                        Debug.Log(cd.gameObject + " TR: " + cd.isTrigger);
+                        GameObject.Destroy(lastGeneratedRock);
+                        return;
+                    }
                 }
-                else
-                {
-                    startPos = lastGeneratedRock.transform.position;
-                    startPos.y = startPoint.position.y;
-                    endPos = new Vector2(startPos.x + Random.Range(minRange, maxRange), endPoint.position.y);
-                    if ((endPos.x > endPoint.position.x) || (endPoint.position.x - endPos.x <= 1.28))
-                        break;
-                }
+                startPos = lastGeneratedRock.transform.position;
+                startPos.y = startPoint.position.y;
+                endPos = new Vector2(startPos.x + Random.Range(minRange, maxRange), endPoint.position.y);
+                if ((endPos.x > endPoint.position.x) || (endPoint.position.x - endPos.x <= 1.28))
+                    break;
             }
         }
         
@@ -89,17 +93,17 @@ public class RockGenerator : MonoBehaviour
 
     void Update()
     {
-        //Find the object you're looking for
-        GameObject tempObject = GameObject.Find("UICanvas");
-        if (tempObject != null)
-        {
-            //If we found the object , get the Canvas component from it.
-            UIBorder = tempObject.GetComponent<Canvas>();
-            Debug.Log("DID IT!!!!!!!!!!!!!!!!!!!");
-            if (UIBorder == null)
-            {
-                Debug.Log("Could not locate Canvas component on " + tempObject.name);
-            }
-        }
+        ////Find the object you're looking for
+        //GameObject tempObject = GameObject.Find("UICanvas");
+        //if (tempObject != null)
+        //{
+        //    //If we found the object , get the Canvas component from it.
+        //    UIBorder = tempObject.GetComponent<Canvas>();
+        //    Debug.Log("DID IT!!!!!!!!!!!!!!!!!!!");
+        //    if (UIBorder == null)
+        //    {
+        //        Debug.Log("Could not locate Canvas component on " + tempObject.name);
+        //    }
+        //}
     }
 }
