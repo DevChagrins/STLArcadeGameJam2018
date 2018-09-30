@@ -191,6 +191,8 @@ namespace Chagrins
 			if (m_pauseInputTime > 0f)
 				return;
 			m_pauseInputTime = f;
+			foreach (InputCommand i in m_pendingInputs)
+				i.duration = 0f;
 			if (ClearCurrentInputs)
 				m_pendingInputs.Clear ();
 		}

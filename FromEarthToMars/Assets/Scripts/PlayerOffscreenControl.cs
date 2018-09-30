@@ -39,7 +39,7 @@ namespace Chagrins {
 		}
 
 		void UpdateImage(bool On) {
-			float a = Mathf.Atan2 (pc.transform.position.y - CenterCoord.y, pc.transform.position.x - CenterCoord.x + xOff);
+			float a = Mathf.Atan2 (pc.transform.position.y - CenterCoord.y, pc.transform.position.x - (CenterCoord.x + xOff));
 			if (On)
 				transform.position = new Vector3 (xOff + CenterCoord.x + 1.5f * Mathf.Cos(a) , CenterCoord.y + 1.5f * Mathf.Sin(a), 0f);
 			else
