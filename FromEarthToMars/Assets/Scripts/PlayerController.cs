@@ -35,7 +35,7 @@ namespace Chagrins
 
 		private void IssueInputs() {
 			Vector3 targetVel = new Vector3 ();
-			if (true ) //Input.GetKey(KeyCode.A))
+			if (Input.GetKey(KeyCode.A))
 			{
 				targetVel.x -= speed;
 			}
