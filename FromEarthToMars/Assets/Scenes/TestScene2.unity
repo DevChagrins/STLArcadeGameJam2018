@@ -418,6 +418,12 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   colliderError: 0.001
+  inputDelay: 3
+  m_lastInput:
+    ActiveTime: 0
+    direction: {x: 0, y: 0, z: 0}
+    duration: 0
+    Delay: 0
 --- !u!50 &2070006595
 Rigidbody2D:
   serializedVersion: 4

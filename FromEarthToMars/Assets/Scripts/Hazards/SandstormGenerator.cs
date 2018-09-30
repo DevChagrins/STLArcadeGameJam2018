@@ -21,6 +21,7 @@ public class SandstormGenerator : MonoBehaviour
     private GameObject currentSandstorm = null;
     private Rect bounds;
 
+	private bool m_enabled;
     // Use this for initialization
     void Start()
     {
@@ -31,12 +32,15 @@ public class SandstormGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentSandstorm == null)
+		if(currentSandstorm == null && m_enabled)
         {
             GenerateSandstorm();
         }
     }
 
+	public void ToggleSandstorms(bool active) {
+		m_enabled = active;
+	}
     void KillSandstorm()
     {
         currentSandstorm = null;

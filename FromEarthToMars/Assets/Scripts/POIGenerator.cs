@@ -13,28 +13,28 @@ public class POIGenerator : MonoBehaviour
 
     void Start()
     {
-        Vector2 startPos = startPoint.position;
-        Vector2 endPos = new Vector2(startPoint.position.x + Random.Range(minRange, maxRange), endPoint.position.y);
-
-        for(int i = 0; i< instanceCount; i++) {
-            GameObject lastGeneratedPOI = generatePoint(startPos, endPos);
-            startPos = lastGeneratedPOI.transform.position;
-            startPos.y = startPoint.position.y;
-            endPos = new Vector2(startPos.x + Random.Range(minRange, maxRange), endPoint.position.y);
-            if((endPos.x > endPoint.position.x) || (endPoint.position.x - endPos.x <= 1.28))
-                break;
-            
-        }
-        
+		Generate ();
     }
 
+	public void Generate() {
+		Vector2 startPos = startPoint.position;
+		Vector2 endPos = new Vector2(startPoint.position.x + Random.Range(minRange, maxRange), endPoint.position.y);
+
+		for(int i = 0; i< instanceCount; i++) {
+			GameObject lastGeneratedPOI = generatePoint(startPos, endPos);
+			startPos = lastGeneratedPOI.transform.position;
+			startPos.y = startPoint.position.y;
+			endPos = new Vector2(startPos.x + Random.Range(minRange, maxRange), endPoint.position.y);
+			if((endPos.x > endPoint.position.x) || (endPoint.position.x - endPos.x <= 1.28))
+				break;
+		}
+	}
     GameObject generatePoint(Vector2 Start, Vector2 End) 
     {
         float positionX = Start.x;
         float positionY = Start.y;
         float ranW = Random.Range(0f, 359.9f);
 
-        //positionX = Random.Range(Start.x, End.x);
         positionX = End.x;
         positionY = Random.Range(Start.y, End.y);
         GameObject POI = GameObject.Instantiate(POIPrefab, new Vector3(positionX, positionY, 0f), Quaternion.identity);
