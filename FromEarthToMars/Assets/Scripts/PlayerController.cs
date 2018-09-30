@@ -20,14 +20,16 @@ namespace Chagrins
 		private List<InputCommand> m_pendingInputs;
 		public InputCommand m_lastInput;
 		private float m_pauseInputTime = 0.0f;
+        private CountDownTimer countDownTimer = null;
 
         void Start()
         {
             _Initialize();
 			m_pendingInputs = new List<InputCommand> ();
+            countDownTimer = GameObject.FindGameObjectWithTag("Timer")?.GetComponent<CountDownTimer>();
         }
 
-		void Update() {	}
+        void Update() {	}
 
         void FixedUpdate()
         {
@@ -172,6 +174,7 @@ namespace Chagrins
             if(timeValue.HasValue)
             {
                 // Actually add the time to the overall counter
+                countDownTimer?.AddTime(timeValue.Value);
             }
             // Delay input
             FreezeInput(actionTime, true);
