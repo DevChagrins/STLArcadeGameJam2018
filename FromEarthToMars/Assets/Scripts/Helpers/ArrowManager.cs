@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ArrowManager : MonoBehaviour {
 
 	public GameObject ArrowPrefab;
+	public GameObject ArrowPrefab2;
 
 	public float HeightOfDisplay;
 
@@ -28,10 +29,15 @@ public class ArrowManager : MonoBehaviour {
 		
 	}
 
-	public void CreateArrow(InputCommand inp) {
-		Debug.Log (ArrowPrefab);
-		GameObject newArrow = Instantiate (ArrowPrefab,FindObjectOfType<EscapeToQuit>().transform);
-		newArrow.GetComponent<RectTransform>().localPosition = new Vector3 (286f,144f,0f);
+	public void CreateArrow(InputCommand inp, bool Player1 = true) {
+		GameObject newArrow;
+		if (Player1) {
+			newArrow = Instantiate (ArrowPrefab,FindObjectOfType<EscapeToQuit>().transform);
+			newArrow.GetComponent<RectTransform> ().localPosition = new Vector3 (276f, 144f, 0f);
+		} else {
+			newArrow = Instantiate (ArrowPrefab2,FindObjectOfType<EscapeToQuit>().transform);
+			newArrow.GetComponent<RectTransform> ().localPosition = new Vector3 (296f, 144f, 0f);
+		}
 		Vector3 dir = inp.direction;
 		newArrow.GetComponent<Signal> ().Speed = HeightOfDisplay / inp.Delay;
 		newArrow.GetComponent<Signal> ().Delay = inp.Delay;

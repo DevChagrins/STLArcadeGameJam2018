@@ -8,6 +8,7 @@ namespace Chagrins
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerController : BaseController
     {
+		public bool Player1 = true;
         public float speed;
         public ContactFilter2D contactFilter;
         public ContactFilter2D pointOfInterestFilter;
@@ -39,24 +40,38 @@ namespace Chagrins
 
 		private void IssueInputs() {
 			Vector3 targetVel = new Vector3 ();
-			if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-			{
-				targetVel.x -= speed;
-			}
+			if (Player1) {
+				if (Input.GetKey (KeyCode.LeftArrow)) {
+					targetVel.x -= speed;
+				}
 
-			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-			{
-				targetVel.x += speed;
-			}
+				if (Input.GetKey (KeyCode.RightArrow)) {
+					targetVel.x += speed;
+				}
 
-			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-			{
-				targetVel.y += speed;
-			}
+				if (Input.GetKey (KeyCode.UpArrow)) {
+					targetVel.y += speed;
+				}
 
-			if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-			{
-				targetVel.y -= speed;
+				if ( Input.GetKey (KeyCode.DownArrow)) {
+					targetVel.y -= speed;
+				}
+			} else {
+				if (Input.GetKey (KeyCode.A) ) {
+					targetVel.x -= speed;
+				}
+
+				if (Input.GetKey (KeyCode.D)) {
+					targetVel.x += speed;
+				}
+
+				if (Input.GetKey (KeyCode.W)) {
+					targetVel.y += speed;
+				}
+
+				if (Input.GetKey (KeyCode.S) ) {
+					targetVel.y -= speed;
+				}
 			}
 			if (targetVel != Vector3.zero) {
 				if (m_lastInput == null ||
@@ -68,7 +83,7 @@ namespace Chagrins
 					newCommand.Delay = inputDelay;
 					m_pendingInputs.Add (newCommand);
 					m_lastInput = newCommand;
-					FindObjectOfType<ArrowManager> ().CreateArrow (newCommand);
+					FindObjectOfType<ArrowManager> ().CreateArrow (newCommand,Player1);
 				} else {					
 					m_lastInput.duration += Time.fixedDeltaTime;
 				}
