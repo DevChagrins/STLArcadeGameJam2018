@@ -478,6 +478,7 @@ MonoBehaviour:
   resultsScreen: {fileID: 1890540434}
   levelLoader: {fileID: 507365192}
   generationMan: {fileID: 507365196}
+  NumPlayers: 2
 --- !u!1 &286035790
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CamSpeed: {x: 0.06, y: 0, z: 0}
+  MaxCameraSpeed: {x: 5, y: 0, z: 0}
+  CameraAcceleration: {x: 0.001, y: 0, z: 0}
   MaxCoords: {x: 18, y: 20}
 --- !u!114 &519420034
 MonoBehaviour:
@@ -1616,6 +1619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialTime: 90
+  timeLeft: 0
+  totalTime: 0
 --- !u!1 &1872955035
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,12 +11,15 @@ public class CountDownTimer : MonoBehaviour {
     private int pickupCounter;
     private GameObject masterObject = null;
 
+	private float lastTime;
+
 	// Use this for initialization
 	void Start () {
         timerText = GetComponent<Text>();
         totalTime = timeLeft = initialTime;
         masterObject = GameObject.FindGameObjectWithTag("Master");
         pickupCounter = 0;
+		lastTime = timeLeft;
 	}
 	
 	// Update is called once per frame
@@ -32,9 +35,20 @@ public class CountDownTimer : MonoBehaviour {
         var displaySeconds = System.Math.Ceiling(timeLeft);
         var displayMinutes = System.Math.Floor(displaySeconds / 60);
         displaySeconds = displaySeconds % 60;
-        timerText.text = string.Format("{0}:{1}", displayMinutes, displaySeconds);
+		timerText.text = string.Format("{0}:{1}", displayMinutes, displaySeconds.ToString("00"));
+		timeColor ();
     }
-		
+
+	private void timeColor() {
+		float d = timeLeft - lastTime;
+		if (d > 0f)
+			timerText.color = Color.green;
+		else if (d < (-Time.deltaTime * 2f))
+			timerText.color = Color.red;
+		else
+			timerText.color = Color.white;
+		lastTime = timeLeft;
+	}
 	public void ModifyTime(float delta) {
 		timeLeft += delta;
 	}

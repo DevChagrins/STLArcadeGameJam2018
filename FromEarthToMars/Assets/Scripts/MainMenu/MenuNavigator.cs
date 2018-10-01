@@ -21,6 +21,8 @@ public class MenuNavigator : MonoBehaviour
     public LevelLoader levelLoader = null;
     public GenerationManager generationMan = null;
 
+	public int NumPlayers = 2;
+
     private float delayForInput = 0;
 
     // Use this for initialization
@@ -38,7 +40,7 @@ public class MenuNavigator : MonoBehaviour
         {
             if(menuState == MenuState.HOWTO)
             {
-				Debug.Log ("Loading game");
+				//Debug.Log ("Loading game");
                 levelLoader?.LoadGameScenes(GoToGame);
 				FindObjectOfType<CountDownTimer> ().timeLeft = 90f;
 				menuState = MenuState.GAME;
@@ -46,14 +48,18 @@ public class MenuNavigator : MonoBehaviour
 
             switch (menuState)
             {
-                case MenuState.MAIN:
-                    {
-                        if (Input.anyKey)
-                        {
-                            MenuTransition(MenuState.HOWTO, 5f);
-                        }
-                    }
-                    break;
+			case MenuState.MAIN:
+				{
+					if (Input.GetKey(KeyCode.Period) || Input.GetKey( KeyCode.BackQuote)) {
+						NumPlayers = 1;
+						MenuTransition (MenuState.HOWTO, 5f);						
+					} else if (Input.GetKey(KeyCode.Slash) || Input.GetKey( KeyCode.L)) {
+						NumPlayers = 2;
+						MenuTransition (MenuState.HOWTO, 5f);
+					}
+
+					break;
+				}
                 case MenuState.HOWTO:
                     {
                     }
@@ -120,6 +126,8 @@ public class MenuNavigator : MonoBehaviour
         resultsScreen.SetActive(false);
 
         generationMan?.EnableGeneration();
+		if (NumPlayers == 1)
+			Destroy (GameObject.Find ("Player2"));
         menuState = MenuState.GAME;
     }
 

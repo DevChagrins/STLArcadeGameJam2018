@@ -27,15 +27,20 @@ namespace Chagrins {
 		
 		// Update is called once per frame
 		void Update () {
-			xOff += (ScrollSpeed * Time.deltaTime);
-			if (pc != null) {
+			if (pc == null)
+				Destroy (gameObject);
+			else {
+
+				xOff += (ScrollSpeed * Time.deltaTime);
+
 				PPos = pc.transform.position;
 				ImageOn = (PPos.x < MinCoord.x + xOff || PPos.x > MaxCoord.x + xOff ||
-					PPos.y < MinCoord.y || PPos.y > MaxCoord.y);
+				PPos.y < MinCoord.y || PPos.y > MaxCoord.y);
 				if (ImageOn)
-					FindObjectOfType<CountDownTimer> ().ModifyTime (-Time.deltaTime);
+					FindObjectOfType<CountDownTimer> ().ModifyTime (-Time.deltaTime * 2f);
+			
+				UpdateImage (ImageOn);
 			}
-			UpdateImage (ImageOn);
 		}
 
 		void UpdateImage(bool On) {

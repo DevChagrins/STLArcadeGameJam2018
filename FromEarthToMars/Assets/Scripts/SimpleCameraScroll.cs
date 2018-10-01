@@ -5,6 +5,8 @@ using UnityEngine;
 public class SimpleCameraScroll : MonoBehaviour {
 
 	public Vector3 CamSpeed = new Vector3(1.0f,0f,0f);
+	public Vector3 MaxCameraSpeed = new Vector3 (5.0f, 0f, 0f);
+	public Vector3 CameraAcceleration = new Vector3(0.001f,0f,0f);
 
 	public Vector2 MaxCoords;
 

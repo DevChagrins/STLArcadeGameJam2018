@@ -9,6 +9,7 @@ namespace Chagrins
     public class PlayerController : BaseController
     {
         public bool Player1 = true;
+		public GameObject DrillIcon;
         public float speed;
         public ContactFilter2D contactFilter;
         public ContactFilter2D pointOfInterestFilter;
@@ -23,6 +24,8 @@ namespace Chagrins
 
         private float m_pauseInputTime = 0.0f;
         private CountDownTimer countDownTimer = null;
+
+		private float m_bonusTimeValue = 0.0f;
 
         void Start()
         {
@@ -131,10 +134,12 @@ namespace Chagrins
 
         protected override void _Step()
         {
-            if (m_pauseInputTime <= 0.0f)
-                IssueInputs();
-            else
-                m_pauseInputTime -= Time.deltaTime;
+			if (m_pauseInputTime <= 0.0f)
+				IssueInputs ();
+			else {
+				countDownTimer?.AddTime(m_bonusTimeValue * Time.deltaTime);
+				m_pauseInputTime -= Time.deltaTime;
+			}
             Vector3 tempVelocity = calculateTempVelocity();
 
             // Collision!
@@ -215,10 +220,13 @@ namespace Chagrins
             {
                 //Debug.Log("Collecting!");
                 // Actually add the time to the overall counter
-                countDownTimer?.AddTime(timeValue.Value);
+                
             }
             // Delay input
+			m_bonusTimeValue = timeValue.Value / actionTime;
             FreezeInput(actionTime, true);
+
+			Destroy (Instantiate (DrillIcon, transform.position + new Vector3 (0.2f, 0f, 0f), Quaternion.identity), actionTime);
 
             // Disable collision on point of interest
             poi?.EnableSelfDestruction(actionTime);
@@ -226,7 +234,7 @@ namespace Chagrins
 
         public void FreezeInput(float f, bool ClearCurrentInputs)
         {
-            if (m_pauseInputTime > 0f)
+            if (m_pauseInputTime > 0f) 
                 return;
             m_pauseInputTime = f;
             foreach (InputCommand i in m_pendingInputs)
