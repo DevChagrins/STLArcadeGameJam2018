@@ -1,0 +1,8 @@
+{
+    "title": "From Earth To Mars",
+    "slug": "FromEarthToMars",
+    "min_players": "1",
+    "max_players": "2",
+    "executable": "From Earth To Mars.exe",
+    "image_url": "team.jpg"
+}
