@@ -1,8 +1,0 @@
-{
-    "title": "From Earth To Mars",
-    "slug": "FromEarthToMars",
-    "min_players": "1",
-    "max_players": "1",
-    "executable": "STLArcadeJam2018Unity3DExample.exe",
-    "image_url": "team.jpg"
-}
