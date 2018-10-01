@@ -19,8 +19,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4326600000242900}
-  - component: {fileID: 114802643740798686}
-  - component: {fileID: 114345963288567956}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -138,37 +136,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114345963288567956
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1136542341638228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 491dd140b4c7e164e91d7ea8cd13f66e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  inputHelper: {fileID: 114802643740798686}
-  playerIndex: 1
---- !u!114 &114802643740798686
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1136542341638228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293c2d2747a5ba84ab86d23df9e0ffae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  up: 273
-  down: 274
-  left: 276
-  right: 275
-  button1: 47
-  button2: 46
 --- !u!114 &114804291535385434
 MonoBehaviour:
   m_ObjectHideFlags: 1
