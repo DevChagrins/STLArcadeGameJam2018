@@ -226,7 +226,7 @@ namespace Chagrins
 			m_bonusTimeValue = timeValue.Value / actionTime;
             FreezeInput(actionTime, true);
 
-			Destroy (Instantiate (DrillIcon, transform.position + new Vector3 (0.2f, 0f, 0f), Quaternion.identity), actionTime);
+			Destroy (Instantiate (DrillIcon, transform.position + new Vector3 (0.0f, 0.25f, 0f), Quaternion.identity), actionTime);
 
             // Disable collision on point of interest
             poi?.EnableSelfDestruction(actionTime);

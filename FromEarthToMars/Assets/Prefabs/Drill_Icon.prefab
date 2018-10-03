@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4154784470128108}
   - component: {fileID: 212006825225479750}
-  - component: {fileID: 114541001358101488}
+  - component: {fileID: 95310340414332968}
   m_Layer: 0
   m_Name: Drill_Icon
   m_TagString: Untagged
@@ -41,25 +41,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114541001358101488
-MonoBehaviour:
+--- !u!95 &95310340414332968
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1546676870786626}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a794822582b918645af6195da3015f43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  spriteFrames:
-  - {fileID: 21300000, guid: 6c21e30b9c962f24891492f954122f57, type: 3}
-  - {fileID: 21300002, guid: 6c21e30b9c962f24891492f954122f57, type: 3}
-  - {fileID: 21300004, guid: 6c21e30b9c962f24891492f954122f57, type: 3}
-  - {fileID: 21300006, guid: 6c21e30b9c962f24891492f954122f57, type: 3}
-  - {fileID: 21300008, guid: 6c21e30b9c962f24891492f954122f57, type: 3}
-  animationSpeed: 0.1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5a3621933d232e54083eadf634c4625e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &212006825225479750
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -94,7 +93,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 1eef133e92c3a224a82ce2ff1dc9cfe6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -18,11 +18,13 @@ namespace Chagrins {
 		public Vector3 PPos;
 
 		public GameObject ChildArrow;
+		private SimpleCameraScroll m_cameraScroll;
 		// Use this for initialization
 		void Start () {
 			if (pc == null)
 				pc = FindObjectOfType<PlayerController> ();
 			ChildArrow = transform.Find ("Arrow").gameObject;
+			m_cameraScroll = FindObjectOfType<SimpleCameraScroll> ();
 		}
 		
 		// Update is called once per frame
@@ -31,7 +33,7 @@ namespace Chagrins {
 				Destroy (gameObject);
 			else {
 
-				xOff += (ScrollSpeed * Time.deltaTime);
+				xOff = m_cameraScroll.transform.position.x;
 
 				PPos = pc.transform.position;
 				ImageOn = (PPos.x < MinCoord.x + xOff || PPos.x > MaxCoord.x + xOff ||
@@ -48,7 +50,7 @@ namespace Chagrins {
 			if (On)
 				transform.position = new Vector3 (xOff + CenterCoord.x + 1.5f * Mathf.Cos(a) , CenterCoord.y + 1.5f * Mathf.Sin(a), 0f);
 			else
-				transform.position = new Vector3(-10f,0f,0f);
+				transform.position = new Vector3(-10f,20f,0f);
 			ChildArrow.transform.localRotation = Quaternion.Euler(0f,0f, a * Mathf.Rad2Deg);
 		}
 	}

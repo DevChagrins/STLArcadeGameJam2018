@@ -21,8 +21,8 @@ namespace Chagrins {
 			if (c.GetComponent<Camera> () != null) {
 				Debug.Log("Am here");
 				c.transform.position = StartPosition;
-				Player[] pl = FindObjectsOfType<Player> ();
-				foreach( Player p in pl)
+				PlayerController[] pl = FindObjectsOfType<PlayerController> ();
+				foreach( PlayerController p in pl)
 					p.transform.position = StartPlayerPosition + new Vector3(Random.Range(-0.25f,0.25f),Random.Range(-0.25f,0.25f),0f);
 			}
 		}
