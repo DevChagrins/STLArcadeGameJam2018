@@ -225,6 +225,7 @@ namespace Chagrins
             // Delay input
 			m_bonusTimeValue = timeValue.Value / actionTime;
             FreezeInput(actionTime, true);
+			FindObjectOfType<CountDownTimer> ().AddPickUp (1, Player1);
 
 			Destroy (Instantiate (DrillIcon, transform.position + new Vector3 (0.0f, 0.25f, 0f), Quaternion.identity), actionTime);
 
