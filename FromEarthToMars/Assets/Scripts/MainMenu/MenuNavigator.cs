@@ -52,10 +52,14 @@ public class MenuNavigator : MonoBehaviour
 				{
 					if (Input.GetKey(KeyCode.Period) || Input.GetKey( KeyCode.BackQuote)) {
 						NumPlayers = 1;
-						MenuTransition (MenuState.HOWTO, 5f);						
+						MenuTransition (MenuState.HOWTO, 5f);	
+						FindObjectOfType<CountDownTimer> ().SinglePlayer = true;
+
 					} else if (Input.GetKey(KeyCode.Slash) || Input.GetKey( KeyCode.L)) {
 						NumPlayers = 2;
 						MenuTransition (MenuState.HOWTO, 5f);
+						FindObjectOfType<CountDownTimer> ().SinglePlayer = false;
+						//PlayerPrefs.DeleteAll ();
 					}
 
 					break;
@@ -120,7 +124,7 @@ public class MenuNavigator : MonoBehaviour
 
     public void GoToGame()
     {
-        Debug.Log("Go To Game");
+        //Debug.Log("Go To Game");
         mainScreen.SetActive(false);
         howToScreen.SetActive(false);
         resultsScreen.SetActive(false);

@@ -13,7 +13,7 @@ public class Results : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		cTime += Time.deltaTime;
-		if (cTime > 5.0f)
+		if (cTime > 300.0f)
 			SceneManager.LoadScene ("UIScene");
 	}
 }

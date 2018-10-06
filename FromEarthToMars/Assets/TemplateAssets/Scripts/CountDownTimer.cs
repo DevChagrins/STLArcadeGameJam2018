@@ -8,7 +8,9 @@ public class CountDownTimer : MonoBehaviour {
     private Text timerText;
 	public float timeLeft;
 	public float totalTime = 0f;
-    private int pickupCounter;
+	public bool SinglePlayer = true;
+    private int pickupCounter1;
+	private int pickupCounter2;
     private GameObject masterObject = null;
 
 	private float lastTime;
@@ -18,7 +20,8 @@ public class CountDownTimer : MonoBehaviour {
         timerText = GetComponent<Text>();
         totalTime = timeLeft = initialTime;
         masterObject = GameObject.FindGameObjectWithTag("Master");
-        pickupCounter = 0;
+        pickupCounter1 = 0;
+		pickupCounter2 = 0;
 		lastTime = timeLeft;
 	}
 	
@@ -56,11 +59,18 @@ public class CountDownTimer : MonoBehaviour {
     {
         timeLeft = timeLeft + _additionalTime;
         totalTime += _additionalTime;
-        pickupCounter++;
     }
+	public void AddPickUp(int numPickup, bool p1) {
+		if (p1) {
+			pickupCounter1 += numPickup;
+		} else {
+			pickupCounter2 += numPickup;
+		}
+	}
+
 
     // This should instead end the current round and unload levels
     void EndGame () {
-        masterObject?.GetComponent<GameController>()?.GameOver(totalTime, pickupCounter);
+		masterObject?.GetComponent<GameController>()?.GameOver(totalTime, pickupCounter1,pickupCounter2,SinglePlayer);
     }
 }

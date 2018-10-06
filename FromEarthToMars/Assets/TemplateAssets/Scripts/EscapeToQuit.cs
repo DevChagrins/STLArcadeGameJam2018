@@ -4,11 +4,31 @@ using UnityEngine;
 
 public class EscapeToQuit : MonoBehaviour {
     
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject); //this makes the GameObject go through all the scenes. That means, this will work in every scene in the game.
-    }
+	/*private static EscapeToQuit m_instance;
 
+	public static EscapeToQuit Instance
+	{
+		get { return m_instance; }
+		set { m_instance = value; }
+	}
+
+	void Awake()
+	{
+
+		if (m_instance == null)
+		{
+			m_instance = this;
+		}
+		else if (m_instance != this)
+		{
+			Destroy(gameObject);
+			return;
+		}
+
+		//DontDestroyOnLoad(gameObject);
+
+	}
+*/
     void Update()
     {
         if (Input.GetKeyDown("escape"))
