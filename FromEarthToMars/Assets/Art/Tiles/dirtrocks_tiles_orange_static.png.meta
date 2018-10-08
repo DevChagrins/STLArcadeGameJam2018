@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 84169897e122e6b42829f6b4ed3a954e
+guid: 179e03edd3d01394dbcd2eb31eeda68f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sand_tiles_orange_static_0
-    21300002: sand_tiles_orange_static_1
-    21300004: sand_tiles_orange_static_2
-    21300006: sand_tiles_orange_static_3
-    21300008: sand_tiles_orange_static_4
+    21300000: dirtrocks_tiles_orange_static_0
+    21300002: dirtrocks_tiles_orange_static_1
+    21300004: dirtrocks_tiles_orange_static_2
+    21300006: dirtrocks_tiles_orange_static_3
+    21300008: dirtrocks_tiles_orange_static_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -89,7 +89,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sand_tiles_orange_static_0
+      name: dirtrocks_tiles_orange_static_0
       rect:
         serializedVersion: 2
         x: 32
@@ -103,13 +103,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd90f2977e1c56346a3f5a24a85040c0
+      spriteID: 955bdf7a6760b704983e4270ab280a96
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sand_tiles_orange_static_1
+      name: dirtrocks_tiles_orange_static_1
       rect:
         serializedVersion: 2
         x: 0
@@ -123,13 +123,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5abf1a133dc8c4346a8b7b171f1a85b6
+      spriteID: 8a36c1519ec4a1a4ab905036c3f40d7d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sand_tiles_orange_static_2
+      name: dirtrocks_tiles_orange_static_2
       rect:
         serializedVersion: 2
         x: 32
@@ -143,13 +143,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5405c0d47cb51d4e88c01cb2896b3a0
+      spriteID: 8fbb4daeb3ad2a84187e133d3accf996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sand_tiles_orange_static_3
+      name: dirtrocks_tiles_orange_static_3
       rect:
         serializedVersion: 2
         x: 64
@@ -163,13 +163,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5224a5254ee60f46a5258c45b9b0e30
+      spriteID: 62e0776e15a01b344a61ad6d6fcc559d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sand_tiles_orange_static_4
+      name: dirtrocks_tiles_orange_static_4
       rect:
         serializedVersion: 2
         x: 32
@@ -183,7 +183,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14db8ba70e1e46346baef0242ae8c78a
+      spriteID: 4f730dab5f78c5147870bf849ec9a2a7
       vertices: []
       indices: 
       edges: []
@@ -191,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1220691ca130ba342a5c659d2e5bedc6
+    spriteID: 0f7397347cfcf7045ad4fd2cc8fcb5ee
     vertices: []
     indices: 
     edges: []
