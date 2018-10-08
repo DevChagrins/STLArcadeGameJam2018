@@ -40,8 +40,6 @@ public class RockGenerator : MonoBehaviour
 
                     if (!cd.isTrigger && !cd.gameObject.CompareTag("Rock"))
                     {
-                        Debug.Log("TR: " + cd.isTrigger);
-                        Debug.Log(cd.gameObject + " TR: " + cd.isTrigger);
                         GameObject.Destroy(lastGeneratedRock);
                         return;
                     }

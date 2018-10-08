@@ -10,6 +10,10 @@ public class PointOfInterest : MonoBehaviour
     private bool selfDestruct = false;
     private float countdown;
 
+    public delegate void DestroyMe(int id);
+    private DestroyMe destroyCallback;
+    private int poiID;
+
     // Use this for initialization
     void Start()
     {
@@ -24,10 +28,10 @@ public class PointOfInterest : MonoBehaviour
             countdown -= Time.deltaTime;
             if (countdown <= 0f)
             {
+                destroyCallback.Invoke(poiID);
                 GameObject.DestroyImmediate(this.gameObject);
             }
         }
-
     }
 
     public void DisableCollision()
@@ -43,6 +47,12 @@ public class PointOfInterest : MonoBehaviour
         DisableCollision();
         countdown = _countdownTime;
         selfDestruct = true;
+    }
+
+    public void SetDestroyCallback(DestroyMe callback, int id)
+    {
+        destroyCallback = callback;
+        poiID = id;
     }
 
     public float GetTimeValue()
